@@ -6,11 +6,11 @@ client = genai.Client(api_key=st.secrets["GOOGLE_API_KEY"])
 
 # Page configuration
 st.set_page_config(
-    page_title="AI Learning Buddy Saritha",
+    page_title="AI Learning Buddy Mithra",
     page_icon="🎓"
 )
 
-st.title("🎓 AI Learning Buddy Saritha")
+st.title("🎓 AI Learning Buddy Mithra")
 
 # User input
 topic = st.text_input("Enter a Topic")
