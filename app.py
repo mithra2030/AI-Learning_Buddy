@@ -1,8 +1,10 @@
 import streamlit as st
-from google import genai
+from groq import Groq
 
-client = genai.Client(api_key=st.secrets["GOOGLE_API_KEY"])
+# Configure Groq
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
+# Page configuration
 st.set_page_config(
     page_title="AI Learning Buddy Mithra",
     page_icon="🎓"
@@ -10,6 +12,7 @@ st.set_page_config(
 
 st.title("🎓 AI Learning Buddy Mithra")
 
+# User input
 topic = st.text_input("Enter a Topic")
 
 option = st.selectbox(
@@ -42,12 +45,19 @@ if st.button("Generate"):
             prompt = topic
 
         try:
-            response = client.models.generate_content(
-                model="gemini-2.0-flash",
-                contents="Say only: Hello"
+            response = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                temperature=0.7,
+                max_tokens=1024
             )
 
-            st.success(response.text)
+            st.write(response.choices[0].message.content)
 
         except Exception as e:
-            st.error(str(e))
+            st.error(f"Error: {e}")
