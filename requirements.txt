@@ -1,4 +1,2 @@
 streamlit
-scikit-learn
-joblib
-Flask
+google-genai
