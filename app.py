@@ -81,4 +81,4 @@ if st.button("🚀 Generate"):
 
 # Footer
 st.markdown("---")
-st.caption("❤️ Developed by Mithra using Streamlit & Groq AI")
+st.caption("❤️ Developed by Mithra ")
