@@ -25,29 +25,15 @@ option = st.selectbox(
     ]
 )
 
-# Generate response
 if st.button("Generate"):
 
-    if topic.strip() == "":
-        st.warning("Please enter a topic.")
+    st.subheader("Available Gemini Models")
 
-    else:
+    try:
+        models = client.models.list()
 
-        if option == "Explain Concept":
-            prompt = f"Explain {topic} in simple language for a beginner."
+        for model in models:
+            st.write(model.name)
 
-        elif option == "Real-Life Example":
-            prompt = f"Give one simple real-life example of {topic}."
-
-        elif option == "Generate Quiz":
-            prompt = f"Create 5 multiple choice questions on {topic} with answers."
-
-        else:
-            prompt = topic
-
-       try:
-    for model in client.models.list():
-        st.write(model.name)
-except Exception as e:
-    st.error(e)
-            
+    except Exception as e:
+        st.error(f"Error: {e}")
