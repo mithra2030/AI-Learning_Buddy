@@ -2,7 +2,7 @@ import streamlit as st
 from google import genai
 
 # Configure Gemini
-client = genai.Client(api_key=st.secrets["GOOGLE_API_KEY"])
+client = genai.Client(api_key=st.secrets["GOOGLE_API_KE"])
 
 # Page configuration
 st.set_page_config(
@@ -47,7 +47,7 @@ if st.button("Generate"):
 
         try:
             response = client.models.generate_content(
-                model="gemini-2.5-flash",
+                model="gemini-2.5-flash-lite",
                 contents=prompt,
             )
 
