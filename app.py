@@ -45,13 +45,9 @@ if st.button("Generate"):
         else:
             prompt = topic
 
-        try:
-            response = client.models.generate_content(
-                model="gemini-2.5-pro",
-                contents=prompt,
-            )
-
-            st.write(response.text)
-
-        except Exception as e:
-            st.error(f"Error: {e}")
+       try:
+    for model in client.models.list():
+        st.write(model.name)
+except Exception as e:
+    st.error(e)
+            
