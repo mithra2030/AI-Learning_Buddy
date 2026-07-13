@@ -6,19 +6,19 @@ client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # Page Configuration
 st.set_page_config(
-    page_title="AI Learning Buddy",
+    page_title="AI Learning Buddy Mithra",
     page_icon="🎓",
     layout="centered"
 )
 
 # Sidebar
 with st.sidebar:
-    st.header("🎓 AI Learning Buddy")
+    st.header("🎓 AI Learning Buddy Mithra")
     st.write("Your personal AI tutor powered by Groq.")
     st.info("Enter a topic, choose an activity, and click Generate!")
 
 # Main Title
-st.title("🎓 AI Learning Buddy")
+st.title("🎓 AI Learning Buddy Mithra")
 st.caption("Learn concepts, examples, quizzes, and more with AI.")
 
 # User Input
